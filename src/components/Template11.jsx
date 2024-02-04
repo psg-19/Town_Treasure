@@ -1,5 +1,7 @@
 import React from 'react'
 import frameImage from '../assets/frame.png'
+import logImg  from '../assets/login.png'
+import signImg  from '../assets/signup.png'
 import { LoginForm } from './LoginForm';
 import { SignupForm } from './SignupForm';
 import {FcGoogle} from 'react-icons/fc'
@@ -28,8 +30,8 @@ let setislogged=  props.setislogged
    {
    
    formtype!== "signup" ? (<LoginForm setislogged={setislogged}/>):(<SignupForm setislogged={setislogged}/>)
-
-   }
+   
+  }
     
 
     <div className='flex w-full items-center my-4 gap-x-2'>
@@ -57,12 +59,20 @@ let setislogged=  props.setislogged
     <img src={frameImage} alt="pattern" height={504}
     width={558} loading='lazy' />
 
-<img src={image} height={490} width={558}
- alt="students" 
- className='absolute -top-4 right-4'
- />
+{
+  
+  formtype!== "signup" ? (<img src={logImg} height={504} width={558}
+    alt="students" 
+    className='absolute -top-4 right-4'
+    />):(<img src={signImg} height={504} width={558}
+      alt="students" 
+      className='absolute -top-4 right-4'
+      />)
+}
 
 </div>
+
+
 
     </div>
   )
