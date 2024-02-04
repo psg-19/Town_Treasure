@@ -127,9 +127,9 @@ export const SignupForm = ({ setislogged }) => {
         </div>
         {/* ----------------pass------------- */}
 
-        <div className="flex justify-between gap-x-4">
+        <div className="flex justify-between gap-x-4 mt-[20px] ">
           <label className="w-full relative ">
-            <p className="text-[0.875rem] text-richblack-5 mb-1 leading-[1.375rem]">
+            <p className="text-[0.875rem] text-richblack-5 mb-1  leading-[1.375rem]">
               Create Password<sup className="text-pink-200">*</sup>
             </p>
 

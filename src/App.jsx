@@ -16,7 +16,7 @@ function App() {
 
 
   return (
-    <div className="w-[100vw] h-[100vh] bg-richblack-900 flex flex-col">
+    <div className="w-[100vw] h-[100vh] bg-richblack-900 overflow-y-auto flex flex-col">
       <Navbar isLoggedIn={isLoggedIn} setisLoggedIn={setisLoggedIn}></Navbar>
 
       <Routes>
