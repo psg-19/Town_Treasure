@@ -50,8 +50,7 @@ export const SignupForm = ({ setislogged }) => {
         className={`${accountType==='student' ? 
         'bg-rickblack-900 text-richblack-5 border border-white':
         'bg-transparent text-richblack-200'} py-2 px-5 rounded-full transition-all duration-200`}
-        >
-            Student
+        >Solo Traveller
             </button>
 
         <button
@@ -60,7 +59,7 @@ export const SignupForm = ({ setislogged }) => {
         'bg-rickblack-900 text-richblack-5 border border-white':
         'bg-transparent text-richblack-200'} py-2 px-5 rounded-full transition-all duration-200`}
         >
-            Instructor
+            Group Traveller
             </button>
       </div>
 
