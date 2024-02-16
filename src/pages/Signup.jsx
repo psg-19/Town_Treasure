@@ -9,9 +9,9 @@ export const Signup = ({setislogged}) => {
     <div>
       
       <Template11
-        title="Join the millions learning to code with StudyNotion for free"
-        desc1='Build skills for today, tommorrow, and beyond.'
-        desc2='Education to future-proof your career.'
+        title="Join Town Treasure today and plan your next trip with us ."
+        desc1='Ready For Your Next Adventure !!!!'
+        desc2='Here We Come To Hold Your Back ...'
         image={signUpImg}
         formtype='signup'
         setislogged={setislogged}

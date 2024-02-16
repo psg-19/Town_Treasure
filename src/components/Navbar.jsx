@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import logo from "../assets/Logo.svg";
+import logo from "../assets/tt_logo.png";
 import { toast } from "react-hot-toast";
 
 export const Navbar = (props) => {
@@ -10,10 +10,10 @@ export const Navbar = (props) => {
   return (
     <div className="flex justify-between item-center w-11/12 py-4 mx-auto max-w-[1160px] ">
       <NavLink to="/">
-        <img src={logo} alt="logo" width={160} height={32} loading="lazy" />
+        <img src={logo} alt="logo" width={120} height={10} loading="lazy" />
       </NavLink>
 
-      <nav>
+      <nav className="flex justify-center items-center">
         <ul className="flex gap-x-6 text-richblack-100 ">
           <li>
             <NavLink to="/">Home</NavLink>

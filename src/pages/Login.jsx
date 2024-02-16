@@ -9,8 +9,8 @@ export const Login = ({setislogged}) => {
 
         <Template11
         title="Welcome Back"
-        desc1='Build skills for today, tommorrow, and beyond.'
-        desc2='Education to future-proof your career.'
+        desc1='Ready For Your Next Adventure !!!!'
+        desc2='Here We Come To Hold Your Back ...'
         image={logInImg}
         formtype='login'
         setislogged={setislogged}
