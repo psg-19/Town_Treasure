@@ -8,7 +8,7 @@ export const Navbar = (props) => {
   let isLoggedIn = props.isLoggedIn;
 
   return (
-    <div className="flex justify-between item-center w-11/12 py-4 mx-auto max-w-[1160px] ">
+    <div className="flex justify-between item-center w-11/12 py-4 mx-auto max-w-[1160px] overflow-x-hidden ">
       <NavLink to="/">
         <img src={logo} alt="logo" width={120} height={10} loading="lazy" />
       </NavLink>
@@ -19,10 +19,10 @@ export const Navbar = (props) => {
             <NavLink to="/">Home</NavLink>
           </li>
           <li>
-            <NavLink to="/">About</NavLink>
+            <NavLink to="/Aboutus">About</NavLink>
           </li>
           <li>
-            <NavLink to="/">Contact</NavLink>
+            <NavLink to="/Contactus">Contact</NavLink>
           </li>
         </ul>
       </nav>
