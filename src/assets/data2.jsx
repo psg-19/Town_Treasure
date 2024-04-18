@@ -60,5 +60,6 @@ const data=[
   description : `Hazratganj, officially known as Atal Chowk, is the downtown and main shopping hub of Lucknow, the capital and largest city of the Indian state of Uttar Pradesh.`,
 },
 
-
 ]
+
+export default data;

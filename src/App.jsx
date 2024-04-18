@@ -26,8 +26,13 @@ function App() {
         <Route path='/Login' element={<Login setislogged={setisLoggedIn}></Login>}></Route>
         <Route path='/Signup' element={<Signup setislogged={setisLoggedIn}></Signup>}></Route>
         {/* <Route path='/aboutUs' element={<AboutUs ></AboutUs>}></Route>
+<<<<<<< HEAD
         <Route path='/contactUs' element={<ContactUs ></ContactUs>}></Route>
       */}
+=======
+        <Route path='/contactUs' element={<ContactUs ></ContactUs>}></Route> */}
+     
+>>>>>>> 327ec54715433eda2dbf96f9401f5c97e85a23f7
 
         <Route path='Dashboard' element={
         
