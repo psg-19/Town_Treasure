@@ -11,14 +11,7 @@ const data=[
         music, and fine cuisine patronized by the Persian-loving Shia Nawabs
 of the city`,
     },
-    // {
-    //     id: 2 ,
-    //     name:'AGRA' ,
-    //     description : `Agra, a city in northern India, is renowned for its historical and architectural gem, the iconic Taj Mahal. This UNESCO World Heritage Site, constructed in the 17th century by Mughal Emperor Shah Jahan in memory of his wife Mumtaz Mahal, stands as an epitome of eternal love and exquisite craftsmanship. Beyond the Taj Mahal, Agra boasts other notable landmarks like Agra Fort, a colossal red sandstone fort showcasing Mughal grandeur, and Fatehpur Sikri, a deserted city reflecting architectural brilliance. 
-    //     `,
-    //     image:`https://book.specialholidays.com/uploads/0000/1/2023/03/01/web-the-city-of-love.jpg
-    //     ` ,
-    // },
+  
     {
         id: 3 ,
         name:'KANPUR' ,
@@ -107,6 +100,16 @@ of the city`,
   ` ,
         image:"https://peopleplaces.in/wp-content/uploads/2023/05/Meerut-Explore-The-Land-Of-Valor-And-Heritage-1000x600.jpg"
         ,
+    }
+    ,
+      {
+        id: 2 ,
+        name:'AGRA' ,
+        image:"https://media.istockphoto.com/id/1146517111/photo/taj-mahal-mausoleum-in-agra.jpg?s=612x612&w=0&k=20&c=vcIjhwUrNyjoKbGbAQ5sOcEzDUgOfCsm9ySmJ8gNeRk="
+        ,
+        description : `Agra, a city in northern India, is renowned for its historical and architectural gem, the iconic Taj Mahal. This UNESCO World Heritage Site, constructed in the 17th century by Mughal Emperor Shah Jahan in memory of his wife Mumtaz Mahal, stands as an epitome of eternal love and exquisite craftsmanship. Beyond the Taj Mahal, Agra boasts other notable landmarks like Agra Fort, a colossal red sandstone fort showcasing Mughal grandeur, and Fatehpur Sikri, a deserted city reflecting architectural brilliance. 
+        `,
+       
     }
 ]
 
