@@ -5,7 +5,7 @@ import logInImg from '../assets/login.png'
 
 export const Login = ({setislogged}) => {
   return (
-    <div>
+    <div className='h-[100vh] w-[100vw] flex justify-center items-center'>
 
         <Template11
         title="Welcome Back"

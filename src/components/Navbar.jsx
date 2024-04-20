@@ -103,10 +103,11 @@ const [hamburger,setHamburger]=useState(false);
         toast.error("Please Wait ,Logging out!!!");
         return
       }
-
+      
       setIsLoading(true);
-
-  navigate('/')
+      
+      navigate('/')
+      setisLoggedIn(false)
 
    setIsLoading(false)
 
@@ -117,7 +118,7 @@ const [hamburger,setHamburger]=useState(false);
   
 
   return (
-    <div className={`flex flex-col items-center  backdrop-blur-sm backdrop-brightness-75 backdrop-contrast-75 fixed w-[100vw] z-50 ${hamburger ? ' h-[100vh] overflow-y-scroll  ':'  justify-center  '} `}>
+    <div className={`flex  no-scrollbar overflow-x-hidden flex-col items-center  backdrop-blur-sm backdrop-brightness-75 backdrop-contrast-75 fixed w-[100vw] z-50 ${hamburger ? ' h-[100vh] overflow-y-scroll  ':'  justify-center  '} `}>
 
 <div className='flex  items-center justify-between w-[90%] h-24 ' >
         
@@ -149,15 +150,15 @@ const [hamburger,setHamburger]=useState(false);
                 <li className={`text-black flex justify-center items-center cursor-pointer font-mullish py-7 hover:text-yellow-900
                 transition-all duration-200   relative group
                 invert
-                ${click =="Donor Posts" ? ("text-yellow-900"):("")}
+                ${click =="States" ? ("text-yellow-900"):("")}
                 
                 `}  onClick={(e)=> {
                   setClick(e.target.innerText);
-                  navigate('/donorPost')
-                }}><NavLink to='/donorPost' className='font-bold'>Donor Posts</NavLink>
+                  navigate('/states')
+                }}><NavLink to='/states' className='font-bold'>States</NavLink>
                 
                 <div className={`h-1 absolute bottom-0 
-                 ${click =="Donor Posts" ? ("bg-yellow-900"):("hidden")}
+                 ${click =="States" ? ("bg-yellow-900"):("hidden")}
                 w-full  bg-yellow-900 group-hover:block  `}></div></li>
                 <li className={`text-black cursor-pointer font-mullish py-7 hover:text-yellow-900
                 transition-all duration-200 flex justify-center items-center  relative group
@@ -303,16 +304,16 @@ setClick(null)
     <li className={`text-black flex justify-center items-center cursor-pointer font-mullish py-7 hover:text-yellow-900 invert
     transition-all duration-200   relative group
     
-    ${click =="Donor Posts" ? ("text-yellow-900"):("")}
+    ${click =="States" ? ("text-yellow-900"):("")}
     
     `}  onClick={(e)=> {
       setClick(e.target.innerText);
       setHamburger(false)
-      navigate('/donorPost')
-    }}><NavLink to='/donorPost' className='font-bold'>Donor Posts</NavLink>
+      navigate('/states')
+    }}><NavLink to='/states' className='font-bold'>States</NavLink>
     
     <div className={`h-1 absolute bottom-0 
-     ${click =="Donor Posts" ? ("bg-yellow-900"):("hidden")}
+     ${click =="States" ? ("bg-yellow-900"):("hidden")}
     w-full  bg-yellow-900 group-hover:block  `}></div></li>
     <li className={`text-black cursor-pointer font-mullish py-7 hover:text-yellow-900
     transition-all duration-200 flex justify-center items-center  relative group invert

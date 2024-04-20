@@ -24,6 +24,8 @@ const data=[
     image : "https://img.freepik.com/premium-vector/bihar-handwritten-stock-lettering-typography-states-india_98908-279.jpg?size=626&ext=jpg"
     , description : `Ancient learning at Nalanda, Mahabodhi Temple's spirituality, and Gangetic plains reflect Bihar's rich historical and cultural heritage.`,
   },
+
+  
   {
     id:5  ,
     name: 'Chhattisgarh',

@@ -29,7 +29,7 @@ export const LoginForm = (props) => {
     setislogged(true);
     toast.success("Loggedin");
 
-    navigate("/dashboard");
+    navigate("/states");
 
     console.log('Printing the final data')
     console.log(formData)
