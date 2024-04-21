@@ -2,8 +2,13 @@ import React, { useState } from "react";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { NavLink, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
+import axios from 'axios'
+
+
+
 
 export const SignupForm = ({ setislogged }) => {
+  const [check,setCheck]=useState(false)
   let navigate = useNavigate();
   const [showpass, setshowpass] = useState(false);
   const [showcomfirmpass, setshowcomfirmpass] = useState(false);
@@ -14,6 +19,7 @@ export const SignupForm = ({ setislogged }) => {
     email: "",
     password: "",
     confirmPassword: "",
+    otp:""
   });
 
   function changeHandler(event) {
@@ -23,20 +29,57 @@ export const SignupForm = ({ setislogged }) => {
     }));
   }
 
-  function submitHandler(event) {
-    event.preventDefault();
+  const [isLoading,setIsLoading]=useState(false)
+
+
+  async function sendOtp(event) {
+    if(isLoading){
+      toast.error("Please wait !!!");
+      return;
+    }
+setIsLoading(true)
+    formData.name=formData.firstname+" "+formData.lastname;
+    console.log('hhhhhhh')
+    await axios.post("http://localhost:8080/register",formData)
+    .then((res)=>{ toast.success("OTP sent successfully !!!")
+  setCheck(true)
+  })
+    .catch((e)=> toast.error("something went wrong while sending otp"))
+
+    setIsLoading(false)
+  }
+
+  async function submitHandler(event) {
+  event.preventDefault();
+
+
     if (formData.password != formData.confirmPassword) {
       toast.error("Passwords donot match");
+      return;
     }
-    setislogged(true);
-    navigate("/Dashboard");
-    toast.success("Account created  successfully!!!");
 
-    const accountData = {
-      ...formData,accountType
-    };
-    console.log("printing account data");
-    console.log(accountData);
+
+    // setislogged(true);
+   
+   
+
+formData.name=formData.firstname+" "+formData.lastname;
+console.log(formData)
+await axios.put("http://localhost:8080/verify-account?email="+formData.email+"&otp="+formData.otp,formData)
+
+.then((res)=>{console.log(res)
+  navigate("/login");
+  toast.success("Account created  successfully!!!");
+})
+.catch((e)=> {
+  console.log(e)
+  toast.error("something went wrong ,please try again later ")
+})
+    // const accountData = {
+    //   ...formData,accountType
+    // };
+    // console.log("printing account data");
+    // console.log(accountData);
   }
 
   const [accountType,setaccountType]=useState('student')
@@ -192,13 +235,50 @@ export const SignupForm = ({ setislogged }) => {
 
         {/* ---------------signup btn------------------ */}
 
-        <button
+      </form>
+
+     {
+
+      check ? (<div>
+         <label className="w-full">
+            <p className="text-[0.875rem] text-richblack-5 mb-1 leading-[1.375rem]">
+             OTP <sup className="text-pink-200">*</sup>
+            </p>
+
+            <input
+              type="text"
+              name="otp"
+              required
+              id=""
+              onChange={changeHandler}
+              placeholder="Enter OTP"
+              
+              className="bg-richblack-800 rounded-[0.5rem] text-richblack-5
+        w-full p-[12px]"
+            />
+          </label>
+          <button
           className="bg-yellow-50 rounded-[8px] font-medium
 text-richblack-900 px-[12px] py-[8px] mt-6 w-full"
-        >
+   onClick={(e)=> submitHandler(e)}     >
           SignUp
         </button>
-      </form>
+       
+
+      </div>):( <button
+        className="bg-yellow-50 rounded-[8px] font-medium
+text-richblack-900 px-[12px] py-[8px] mt-6 w-full"
+onClick={()=> sendOtp()}
+      >
+        
+        {
+          isLoading ? "Please Wait":"Send OTP"
+        }
+      </button>)
+
+     }
+
+        
     </div>
   );
 };
