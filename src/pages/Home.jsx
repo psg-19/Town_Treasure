@@ -1,43 +1,4 @@
-// import React from 'react'
-// // import image from '../assets/home_page.png'
-// import './Home.css'
-// // import AutoTypeText from './AutoTypeText'
 
-// export const Home = () => {
-//   return (
-//     <div className='mt-4 p-9 box-border  bg-[url("https://res.cloudinary.com/du30ff5i6/image/upload/v1713285740/communityCares/xaxu2ejulltwc9lgbtmm.png")] w-[100vw] h-[100vh] flex flex-col justify-start items-center py-32 px-6 gap-y-12   bg-cover bg-center bg-no-repeat relative overflow-x-hidden '>
-
-
-
-
-// <p className=' text-8xl decoration-solid'>TOWN TREASURE</p>
-
-
-      
-//       {/* --------------------------TOWN TREASURES---------------------------------- */}
-
-
-//       {/* ----------------------IMAGE----------------------- */}
-//    {/* <div className='relative w-[80%] '>
-   
-//         <img src={image} className='border h-[90%] w-[100%] -z-10 rounded-xl' alt="Home Page" />
-      
-
-//       <div className='text-richblack-700 font-extrabold text-7xl absolute uppercase top-[19%]
-//       left-20
-//       '>
-       
-//         </div>
-
-
-//    </div> */} <p className=''>Explore the world 
-//         <br/> with us</p>
-
-//    <div className=' text-8xl decoration-solid'>ARE YOU READY ?</div>
-
-//     </div>
-//   )
-// }
 import React, {  useState } from 'react'
 
 import { useNavigate } from 'react-router-dom'
@@ -49,8 +10,7 @@ import { useNavigate } from 'react-router-dom'
 export const Home = () => {
 
 
-// let ct=0;
-  // const {backendUrl,setUser,setToken1,ct,setCt,setIsLogged,setClick}=useContext(AppContext)
+
   const[click,setClick]=useState('sf')
 const navigate=useNavigate()
 
@@ -62,7 +22,7 @@ const navigate=useNavigate()
 
 
   return (
-    <div className='flex flex-col bg-richblack-800 no-scrollbar    justify-center text-white overflow-y-scroll overflow-x-hidden no-scrollbar'>
+    <div className=' no-scrollbar flex flex-col bg-richblack-800 no-scrollbar    justify-center text-white overflow-y-scroll overflow-x-hidden no-scrollbar'>
 
 
 {/* -------------------wrapper------------------------------------------------------ */}
@@ -119,7 +79,7 @@ const navigate=useNavigate()
 </div>
 {/* ======================== */}
 
-<div className=' py-12 min-w-[300px] lg:w-[40%] md:w-[40%] sm:w-[90%] all:w-[90%]'>
+<div className=' py-12 min-w-[300px] lg:w-[40%] md:w-[40%] sm:w-[90%] all:w-[90%] overflow-x-hidden'>
   <img src="https://ucarecdn.com/c67f35be-a6be-41c6-9545-8daebe0a085a/" alt="picture" className='h-[100%] w-[100%] '/>
 </div>
 
@@ -136,7 +96,7 @@ const navigate=useNavigate()
 
 
 
-<div className=' py-12 min-w-[300px] lg:w-[40%] md:w-[40%] sm:w-[90%] all:w-[90%]'>
+<div className=' py-12 min-w-[300px] lg:w-[40%] md:w-[40%] sm:w-[90%] all:w-[90%] overflow-x-hidden'>
   <img src="https://ucarecdn.com/c67f35be-a6be-41c6-9545-8daebe0a085a/" alt="picture" className='h-[100%] w-[100%] '/>
 </div>
 

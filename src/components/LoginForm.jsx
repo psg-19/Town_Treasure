@@ -3,6 +3,8 @@ import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
+import axios from 'axios'
+
 
 export const LoginForm = (props) => {
   let setislogged = props.setislogged;
@@ -24,15 +26,44 @@ export const LoginForm = (props) => {
 
   }
 
-  function submitHandler(e) {
-    e.preventDefault();
-    setislogged(true);
-    toast.success("Loggedin");
+  const [isLoading,setIsLoading]=useState(false);
 
-    navigate("/dashboard");
+ async function submitHandler(e) {
 
-    console.log('Printing the final data')
-    console.log(formData)
+  e.preventDefault()
+    if(isLoading){
+      toast.error("Please wait !!!");
+      return;
+    }
+setIsLoading(true)
+   
+    await axios.put("http://localhost:8080/login",formData)
+    .then((res)=>{
+  // setCheck(true)
+  if(res.data=="Password is incorrect"){
+    toast.error("Wrong password !!!")
+    return
+  }
+  toast.success("Login successfully !!!")
+  setislogged(true);
+    console.log(res)
+// navigate('/;')
+  navigate("/");
+
+  })
+    .catch((e)=> toast.error("something went wrong while logging in"))
+
+    setIsLoading(false)
+
+
+
+    // setislogged(true);
+    
+
+    // navigate("/states");
+
+    // console.log('Printing the final data')
+    // console.log(formData)
   }
 
   return (
@@ -98,7 +129,9 @@ export const LoginForm = (props) => {
         className="bg-yellow-50 rounded-[8px] font-medium
         text-richblack-900 px-[12px] py-[8px] mt-6"
       >
-        SignIn
+       {
+        isLoading ? "Please Wait":" SignIn"
+       }
       </button>
     </form>
   );
