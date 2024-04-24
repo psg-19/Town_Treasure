@@ -15,9 +15,13 @@ export const Card = ({item}) => {
       setDistrict(item)
 navigate('/district')}} 
 
-className=' flex flex-col w-80  items-center h-[30%] rounded-md bg-white'>
+className=' flex flex-col  w-[300px]  overscroll-y-auto h-[540px] items-center gap-y-4  rounded-md bg-white'>
 
-  <div className=' w-[100%] h-[50%] mt-4 flex flex-col items-center justify-center '> <img  className='rounded-sm h-[100%] w-[90%]' src={item.image} alt="" /></div>
+<div className='overflow-hidden h-[300px] mt-4 w-[250px]'>
+    <img src={item.image} className='w-[100%] h-[100%] rounded-lg ' alt="" />
+
+
+</div>
 
 <div className='text-black font-extrabold my-4'>{item.name}</div>
 

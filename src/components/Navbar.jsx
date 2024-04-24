@@ -160,6 +160,26 @@ const [hamburger,setHamburger]=useState(false);
                 <div className={`h-1 absolute bottom-0 
                  ${click =="States" ? ("bg-yellow-900"):("hidden")}
                 w-full  bg-yellow-900 group-hover:block  `}></div></li>
+
+
+
+
+
+<li className={`text-black cursor-pointer font-mullish py-7 hover:text-yellow-900
+                transition-all duration-200 flex justify-center items-center  relative group
+                invert
+                ${click =="Bookings" ? ("text-yellow-900"):("")}
+                
+                `}  onClick={(e)=> {
+                  setClick(e.target.innerText);
+                  navigate('/booking')
+                }}><NavLink  className='font-bold' to='/aboutus'>Bookings </NavLink>
+                   <div className={`h-1 absolute bottom-0  
+                 ${click =="Bookings" ? ("bg-yellow-900"):("hidden")}
+                w-full  bg-yellow-900 group-hover:block  `}></div>
+                </li>
+
+
                 <li className={`text-black cursor-pointer font-mullish py-7 hover:text-yellow-900
                 transition-all duration-200 flex justify-center items-center  relative group
                 invert
@@ -173,6 +193,8 @@ const [hamburger,setHamburger]=useState(false);
                  ${click =="About Us" ? ("bg-yellow-900"):("hidden")}
                 w-full  bg-yellow-900 group-hover:block  `}></div>
                 </li>
+
+
                 <li className={`text-black flex justify-center items-center cursor-pointer font-mullish py-7 hover:text-yellow-900
                 transition-all duration-200   relative group
                 invert
@@ -259,25 +281,7 @@ setClick(null)
  
 
 
-   <li className={`text-black cursor-pointer font-mullish py-7 hover:text-yellow-900
-    transition-all duration-200 flex justify-center items-center  relative group invert
-    
-    ${click =="Your Profile" ? ("text-yellow-900"):("")}
-    
-    `} 
-   onClick={()=>{
-    setHamburger(false)
-    setClick('Your Profile')
-    navigate('/profile')
-   }}
 
-   >
-    <NavLink className='font-bold' to='/profile'>Your Profile</NavLink>
-
-    <div className={`h-1 absolute bottom-0 
-     ${click =="Your Profile" ? ("bg-yellow-900 block"):("hidden")}
-    w-full  bg-yellow-900 group-hover:block  `}></div>
-    </li>
 
 
   </ul>}
@@ -315,6 +319,25 @@ setClick(null)
     <div className={`h-1 absolute bottom-0 
      ${click =="States" ? ("bg-yellow-900"):("hidden")}
     w-full  bg-yellow-900 group-hover:block  `}></div></li>
+
+
+
+
+<li className={`text-black cursor-pointer font-mullish py-7 hover:text-yellow-900
+                transition-all duration-200 flex justify-center items-center  relative group
+                invert
+                ${click =="Bookings" ? ("text-yellow-900"):("")}
+                
+                `}  onClick={(e)=> {
+                  setClick(e.target.innerText);
+                  navigate('/booking')
+                }}><NavLink  className='font-bold' to='/aboutus'>Bookings </NavLink>
+                   <div className={`h-1 absolute bottom-0  
+                 ${click =="Bookings" ? ("bg-yellow-900"):("hidden")}
+                w-full  bg-yellow-900 group-hover:block  `}></div>
+                </li>
+
+
     <li className={`text-black cursor-pointer font-mullish py-7 hover:text-yellow-900
     transition-all duration-200 flex justify-center items-center  relative group invert
     
@@ -329,6 +352,8 @@ setClick(null)
      ${click =="About Us" ? ("bg-yellow-900"):("hidden")}
     w-full  bg-yellow-900 group-hover:block  `}></div>
     </li>
+
+
     <li className={`text-black flex justify-center items-center cursor-pointer font-mullish py-7 hover:text-yellow-900 invert
     transition-all duration-200   relative group
     

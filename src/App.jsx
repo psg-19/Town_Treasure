@@ -11,8 +11,9 @@ import { useContext, useState } from 'react';
 import { States } from './pages/States';
 import { AppContext } from './context/AppContext';
 import { Places } from './pages/Places';
-import AboutUs from './pages/AboutUs.jsx';
-import ContactUs from './pages/ContactUs.js';
+import Booking from './pages/Booking';
+import AboutUs from './pages/AboutUs';
+import ContactUs from './pages/ContactUs';
 
 function App() {
 
@@ -30,6 +31,7 @@ const {state}=useContext(AppContext)
         <Route path='/Login' element={<Login setislogged={setisLoggedIn}></Login>}></Route>
         <Route path='/Signup' element={<Signup setislogged={setisLoggedIn}></Signup>}></Route>
         <Route path='/states' element={<States setislogged={setisLoggedIn}></States>}></Route>
+        <Route path='/booking' element={<Booking setislogged={setisLoggedIn}></Booking>}></Route>
 
         <Route path={`/state`} element={<Dashboard setislogged={setisLoggedIn}></Dashboard>}></Route>
         <Route path={`/district`} element={<Places setislogged={setisLoggedIn}></Places>}></Route>
