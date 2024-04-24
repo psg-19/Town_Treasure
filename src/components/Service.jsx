@@ -17,9 +17,9 @@ function Service() {
     },
     {
       icon: service2,
-      title: "Covid Safe",
+      title: "Family Friendly",
       subTitle:
-        "We have all the curated hotels that have all the precaution for a covid safe environment.",
+        "We have all the curated hotels that have all the precaution for a family friendly environment.",
     },
     {
       icon: service3,
