@@ -7,12 +7,12 @@ import {Login} from './pages/Login'
 import {Signup} from './pages/Signup'
 import {Dashboard} from './pages/Dashboard'
 import { useContext, useState } from 'react';
-import {PrivateRoute} from './components/PrivateRoute'
+// import {PrivateRoute} from './components/PrivateRoute'
 import { States } from './pages/States';
 import { AppContext } from './context/AppContext';
 import { Places } from './pages/Places';
-// import AboutUs from './pages/AboutUs';
-// import ContactUs from './pages/ContactUs';
+import AboutUs from './pages/AboutUs.jsx';
+import ContactUs from './pages/ContactUs.js';
 
 function App() {
 
@@ -33,8 +33,8 @@ const {state}=useContext(AppContext)
 
         <Route path={`/state`} element={<Dashboard setislogged={setisLoggedIn}></Dashboard>}></Route>
         <Route path={`/district`} element={<Places setislogged={setisLoggedIn}></Places>}></Route>
-        {/* <Route path='/aboutUs' element={<AboutUs ></AboutUs>}></Route>
-        {/* <Route path='/contactUs' element={<ContactUs ></ContactUs>}></Route> */} 
+        <Route path='/aboutUs' element={<AboutUs ></AboutUs>}></Route>
+        <Route path='/contactUs' element={<ContactUs ></ContactUs>}></Route> 
      
 
         {/* <Route path='Dashboard' element={
