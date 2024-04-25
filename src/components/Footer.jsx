@@ -39,8 +39,8 @@ const Footer = () => {
             <h5 className="text-lg font-bold mb-4">Advance Booking</h5>
             <p className="mb-4">For Booking Ola</p>
             <div className="relative">
-              <input className="form-input bg-gray-100 w-full py-3 px-4 rounded-lg" type="text" placeholder="E-mail" />
-              <button className="btn-primary absolute top-0 right-0 mt-2 mr-2 py-2 px-4 rounded-lg">Submit</button>
+              <input className="form-input bg-transparent w-full py-3 px-4 rounded-lg" type="text" placeholder="E-mail" />
+              <button className="btn-primary bg-green-700 absolute top-0 right-0 mt-2 mr-2 py-1 px-4 rounded-lg">Submit</button>
             </div>
           </div>
         </div>
