@@ -18,7 +18,7 @@ const Booking = () => {
     <Service />
     <Recommendation /> 
     <Testimonials />
-    <Footer />
+   
   </div>
   )
 }

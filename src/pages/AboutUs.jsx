@@ -1,5 +1,7 @@
 import React from "react";
 import "../css/aboutUs.css"
+import aboutUs from '../assets/aboutUs.jpg'
+
 const AboutUs = () => {
   return (
     <>
@@ -19,7 +21,7 @@ const AboutUs = () => {
           <div className="w-full lg:w-6/12">
             <img
               className="lg:block hidden w-full"
-              src="images/about-us.jpg"
+              src={aboutUs}
               alt="grocery"
             />
             <img
