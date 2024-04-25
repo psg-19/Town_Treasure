@@ -1,79 +1,65 @@
-import React, { useState } from "react";
-import Classes from "../Styles/Footer.module.css";
-import footerLogo from "../assets/footerlogo.jpg";
-import facebook from "../assets/facebook.svg";
-import github from "../assets/github.svg";
-import linkedin from "../assets/linkedin.svg";
+import React from 'react';
 
-function Footer() {
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setSubmitted(true);
-  };
-
+const Footer = () => {
   return (
-    <footer className={Classes.footerContainer}>
-      <div className={Classes.footer}>
-        <div className={Classes.socialLink}>
-          <p>+918318233045</p>
-          <p>towntreasures@gmail.com</p>
-          <a href="#">
-            <img src={facebook} alt="" />
-          </a>
-          <a href="#">
-            <img src={linkedin} alt="" />
-          </a>
-          <a href="#">
-            <img src={github} alt="" />
-          </a>
+    <div className="bg-gray-800 text-white py-12 mt-12">
+      <div className="container mx-auto px-4">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div className="mb-8">
+            <h5 className="text-lg font-bold mb-4">Get In Touch</h5>
+            <p className="mb-2"><i className="fas fa-map-marker-alt me-2"></i>IIIT Lucknow</p>
+            <p className="mb-2"><i className="fas fa-phone-alt me-2"></i>(91) 99754-4919</p>
+            <p className="mb-2"><i className="fas fa-envelope me-2"></i>iitl@gmail.com</p>
+            <div className="flex space-x-4 pt-2">
+              <a className="btn-social" href="https://www.instagram.com/ag.eden/"><i className="fab fa-twitter"></i></a>
+              <a className="btn-social" href="https://www.instagram.com/ag.eden/"><i className="fab fa-facebook-f"></i></a>
+              <a className="btn-social" href="https://www.instagram.com/ag.eden/"><i className="fab fa-youtube"></i></a>
+              <a className="btn-social" href="https://www.instagram.com/ag.eden/"><i className="fab fa-linkedin-in"></i></a>
+            </div>
+          </div>
+          <div className="mb-8">
+            <h5 className="text-lg font-bold mb-4">Quick Links</h5>
+            <a className="text-white hover:text-green-500" href="">About Us</a><br></br>
+            <a className="text-white hover:text-green-500" href="">Contact Us</a><br></br>
+            <a className="text-white hover:text-green-500" href="">Our Services</a><br></br>
+            <a className="text-white hover:text-green-500" href="">Privacy Policy</a><br></br>
+            <a className="text-white hover:text-green-500" href="">Terms & Condition</a><br></br>
+          </div>
+          <div className="mb-8">
+            <h5 className="text-lg font-bold mb-4">Photo Gallery</h5>
+            <div className="grid grid-cols-3 gap-2">
+              {[1, 2, 3, 4, 5, 6].map((index) => (
+                <div key={index}>
+                  <img className="w-full rounded-lg shadow" src={`img/property-${index}.jpg`} alt={`Place ${index}`} />
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="mb-8">
+            <h5 className="text-lg font-bold mb-4">Advance Booking</h5>
+            <p className="mb-4">For Booking Ola</p>
+            <div className="relative">
+              <input className="form-input bg-gray-100 w-full py-3 px-4 rounded-lg" type="text" placeholder="E-mail" />
+              <button className="btn-primary absolute top-0 right-0 mt-2 mr-2 py-2 px-4 rounded-lg">Submit</button>
+            </div>
+          </div>
         </div>
-
-        <div className={Classes.footerLogo}>
-          <a href="#hero">
-            <img src={footerLogo} alt="" />
-            <p>
-              Town <span>Treasures</span>
-            </p>
-          </a>
-        </div>
-
-        <div className={Classes.footerInfo}>
-          <h3>Unveil the Unexplored</h3>
-          <p>
-            let us inspire your next gateway with new destinations and special
-            deals
-          </p>
-
-          <form onSubmit={handleSubmit}>
-            <label>Your name</label>
-            <input type="text" name="name" placeholder="Enter your name" required="" />
-            <hr />
-            <label>Phone Number</label>
-            <input type="tel" name="phone" placeholder="Enter your mobile number" required="" />
-            <hr />
-            <label>Your Email</label>
-            <input type="email" name="email" placeholder="Enter your email id" required="" />
-            <hr />
-            <label >Write your messages here</label>
-            <textarea name="message" rows="2" placeholder="Enter your message" required=""></textarea>
-            <hr />
-            
-              
-            <button type="submit" className="btn dark-btn submit-btn">Submit now <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADYAAAAeCAYAAABnuu2GAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAADPSURBVHgB7dnRDYJAEEXRpxVYAiXQgpVICVqB2IEdaAeUQAlrB9iBdjDOyPqhm2yCX7xhTzIJhITkBgJkAWZIRDY6vYw624cHGtLItzA1bo15+o2odTqwi7dikNQF7LzHVTrD0uKOYFfiWJU4VhpR6zyWFrez46u4cUb6GcOssbBBNyr48rSPYE9X6uMddtC5w5cTWGUeHnuwykS1YJV5QbdgVaJYlCgWmagrWMm4mOMyKriKMpKuBJsw5RwsK8E3nS3YxVuxi1eqlz9+SrwAYrdvIKJt0HIAAAAASUVORK5CYII=" alt="" /></button>
-            {submitted && <p>We have received your information.</p>}
-          </form>
+        <div className="border-t border-gray-300 mt-8 pt-6">
+          <div className="flex justify-between items-center">
+            <div className="text-center md:text-left mb-3 md:mb-0">
+              &copy; <a href="#" className="border-b border-gray-400">© 2024 Code</a>, All Right Reserved.
+            </div>
+            <div className="footer-menu space-x-3">
+              <a href="#" className="text-white hover:text-gray-800">Home</a>
+              <a href="#" className="text-white hover:text-gray-800">Cookies</a>
+              <a href="#" className="text-white hover:text-gray-800">Help</a>
+              <a href="#" className="text-white hover:text-gray-800">FAQs</a>
+            </div>
+          </div>
         </div>
       </div>
-      {submitted && (
-        <div className={Classes.modalContainer}>
-          <h5>We Received your information</h5>
-          <button onClick={() => setSubmitted(false)}>Ok</button>
-        </div>
-      )}
-    </footer>
+    </div>
   );
-}
+};
 
 export default Footer;
