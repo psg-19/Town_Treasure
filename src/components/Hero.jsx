@@ -443,7 +443,7 @@ function Hero() {
                 </select>
               </div>
 
-              <div className={Classes.bookingFields}>
+              <div className={Classes.bookingFields} style={{display:'flex'}}> 
                 {/* Check-in and Check-out */}
                 <div className={Classes.search}>
                   <label>Check in</label>
