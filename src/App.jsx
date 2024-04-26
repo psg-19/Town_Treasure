@@ -14,7 +14,7 @@ import { Places } from './pages/Places';
 import Booking from './pages/Booking';
 import AboutUs from './pages/AboutUs';
 import ContactUs from './pages/ContactUs';
-
+import Footer from './components/Footer.jsx'
 function App() {
 
 
@@ -47,7 +47,7 @@ const {state}=useContext(AppContext)
 
         }></Route> */}
       </Routes>
-
+      <Footer></Footer>
     </div>
   );
 }

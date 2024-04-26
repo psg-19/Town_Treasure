@@ -112,7 +112,7 @@ const sectionRef = useRef(null);
    <p className=' text-left text-lg w-96'>Join our platform and  embark your journey in town travelling.Exploring is a conversation with the planet, a kaleidoscope of cultures and landscapes that broaden your understanding of the human story.</p>
    </div>
 
-   <button className="bg-yellow-500 hover:bg-orange-500 text-blue-950 font-semibold hover:text-white py-2 px-2 mx-48  border border-blue-500 hover:border-transparent rounded " onClick={()=> {navigate('/signUp')
+   <button className="bg-yellow-500 hover:bg-orange-500 text-blue-950 font-semibold hover:text-white py-2 px-2 mx-48  border border-blue-500 hover:border-transparent rounded " onClick={()=> {navigate('/booking')
 
 setClick('Sign Up')}}>
   Book Now
@@ -145,8 +145,8 @@ setClick('Sign Up')}}>
 <div className='flex justify-center items-center gap-x-4'>
 <button className="bg-transparent hover:bg-blue-500 text-sky-600 font-semibold hover:text-white py-2 px-1 border
  border-blue-500 hover:border-transparent rounded overflow-x-hidden relative w-72 overflow-hidden shadow-lg transition-transform duration-300 transform hover:scale-110" onClick={()=> {
-  navigate('/donorPost')
-  setClick('Donor Posts')
+  navigate('/Places')
+  setClick('Places')
   }}>
   Get To Know  Your City
 </button>
@@ -259,10 +259,10 @@ w-[100vw] h-[100vh] flex flex-col justify-start  py-32 px-6 gap-y-12   bg-cover 
 </p>
 
 <div>
-<button className="bg-yellow-600 hover:bg-orange-500 text-blue-950 font-semibold hover:text-white py-2 px-8 border border-blue-500 hover:border-transparent rounded " onClick={()=> {navigate('/signUp')
+<button className="bg-yellow-600 hover:bg-orange-500 text-blue-950 font-semibold hover:text-white py-2 px-8 border border-blue-500 hover:border-transparent rounded " onClick={()=> {navigate('/')
 
 setClick('Sign Up')}}>
-  Explore
+  Get Routes
 </button>
 
 </div>
