@@ -223,6 +223,35 @@ const data=[
   description : `The temple area has many sights worth seeing. These spots represent Lord Radha Krishna's spiritual presence. The Radha Rani temple contains Swami Haridas' samadhi. There is also a sacred Radha Rani well nearby.`,
 },
 
+// ------------------------------------------------JHASI---------------------------------------------------
+{
+  id:33,
+  name :'Jhansi_Fort',
+  image :"https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0a/32/58/24/different-parts-in-the.jpg?w=1200&h=-1&s=1",
+  description : `Jhansi Fort or Jhansi ka Kila is a fortress situated on a large hilltop called Bangira, in Uttar Pradesh, Northern India. It served as a stronghold of the Chandela Kingsin Balwant Nagar from the 11th through the 17th century.`,
+},
+
+{
+  id:34,
+  name :'St_Jude_Shrine',
+  image :"https://dynamic-media-cdn.tripadvisor.com/media/photo-o/07/a9/1c/2c/st-jude-s-shrine.jpg?w=1200&h=-1&s=1",
+  description : `The church has an unusual design for a catholic church and doesn’t employ any of the traditional church designs. There’s an unusually long and gentle sloping walk up to the front entrance.`,
+},
+{
+  id:35,
+  name :'Parichha_Dam',
+  image :"https://dynamic-media-cdn.tripadvisor.com/media/photo-o/08/aa/55/ff/parichha-dam.jpg?w=800&h=-1&s=1",
+  description : `Real beauty of this dam come in monsoon time. So visit it in this time. There was lot of water. Good place for photography.`,
+},
+
+{
+  id:36,
+  name :'Jhansi_Herbal_Garden',
+  image :"https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0d/b7/58/f6/getlstd-property-photo.jpg?w=1000&h=-1&s=1",
+  description : `Herbal Garden Jhansi Cantt boasts of about 20000 different Herbal plants of different varieties planted to rejuvenate the wandering souls. One hour of walk is real elixir of life for all ages.`,
+},
+
+
 
 
 
