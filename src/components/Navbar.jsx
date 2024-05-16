@@ -81,15 +81,15 @@ const [hamburger,setHamburger]=useState(false);
                 <li className={`text-black flex justify-center items-center cursor-pointer font-mullish py-7 hover:text-yellow-900
                 transition-all duration-200   relative group
                 invert
-                ${click =="States" ? ("text-yellow-900"):("")}
+                ${click =="Explore" ? ("text-yellow-900"):("")}
                 
                 `}  onClick={(e)=> {
                   setClick(e.target.innerText);
-                  navigate('/states')
-                }}><NavLink to='/states' className='font-bold'>States</NavLink>
+                  navigate('/explore')
+                }}><NavLink to='/explore' className='font-bold'>Explore</NavLink>
                 
                 <div className={`h-1 absolute bottom-0 
-                 ${click =="States" ? ("bg-yellow-900"):("hidden")}
+                 ${click =="Explore" ? ("bg-yellow-900"):("hidden")}
                 w-full  bg-yellow-900 group-hover:block  `}></div></li>
 
 
@@ -239,16 +239,16 @@ setClick(null)
     <li className={`text-black flex justify-center items-center cursor-pointer font-mullish py-7 hover:text-yellow-900 invert
     transition-all duration-200   relative group
     
-    ${click =="States" ? ("text-yellow-900"):("")}
+    ${click =="Explore" ? ("text-yellow-900"):("")}
     
     `}  onClick={(e)=> {
       setClick(e.target.innerText);
       setHamburger(false)
-      navigate('/states')
-    }}><NavLink to='/states' className='font-bold'>States</NavLink>
+      navigate('/explore')
+    }}><NavLink to='/explore' className='font-bold'>Explore</NavLink>
     
     <div className={`h-1 absolute bottom-0 
-     ${click =="States" ? ("bg-yellow-900"):("hidden")}
+     ${click =="Explore" ? ("bg-yellow-900"):("hidden")}
     w-full  bg-yellow-900 group-hover:block  `}></div></li>
 
 

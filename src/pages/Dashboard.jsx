@@ -12,9 +12,10 @@ export const Dashboard = () => {
 
   return (
     <div className='flex text-white justify-center items-center  flex-col'>
+      <div className='h-[100px]'></div>
      <p className='uppercase text-6xl my-4 mb-7'> Welcome to TOWN {state.name}</p>
 
-     <div className='flex gap-y-8 flex-row w-[70%] my-10  justify-evenly flex-wrap'>
+     <div className='flex flex-row w-[70%] my-10 gap-y-[2%] justify-evenly flex-wrap'>
 
      {
      data.map((item)=>{

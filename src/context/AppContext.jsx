@@ -13,6 +13,8 @@ export default function AppContextProvider({children}){
 const [state,setState]=useState({
     name:'none'
 })
+
+const backendUrl="http://localhost:8090"
 const [district,setDistrict]=useState({
     name:'none'
 })
@@ -20,7 +22,8 @@ const [district,setDistrict]=useState({
 
 const value={
     state,setState,
-    district,setDistrict
+    district,setDistrict,
+    backendUrl
 }
 return <AppContext.Provider value={value}>
     {children}

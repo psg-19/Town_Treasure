@@ -68,7 +68,7 @@ function Recommendation() {
   ];
 
   return (
-    <section id="recommendation" className="recommendation">
+    <section id="recommendation" className="recommendation ">
       <div className="title">
         <h1>Recommend</h1>
         <div className="CategoryBar">

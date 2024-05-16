@@ -30,7 +30,7 @@ const {state}=useContext(AppContext)
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/Login' element={<Login setislogged={setisLoggedIn}></Login>}></Route>
         <Route path='/Signup' element={<Signup setislogged={setisLoggedIn}></Signup>}></Route>
-        <Route path='/states' element={<States setislogged={setisLoggedIn}></States>}></Route>
+        <Route path='/explore' element={<States setislogged={setisLoggedIn}></States>}></Route>
         <Route path='/booking' element={<Booking setislogged={setisLoggedIn}></Booking>}></Route>
 
         <Route path={`/state`} element={<Dashboard setislogged={setisLoggedIn}></Dashboard>}></Route>

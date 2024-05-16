@@ -5,7 +5,8 @@ import aboutUs from '../assets/aboutUs.jpg'
 const AboutUs = () => {
   return (
     <>
-      <div className="2xl:container 2xl:mx-auto lg:py-16 lg:px-20 bg-white md:py-12 md:px-6 py-9 px-4">
+      <div className="2xl:container 2xl:mx-auto lg:py-16 lg:px-20 bg-white md:py-12 md:px-6 py-9 px-4 ">
+        <div className="h-[60px]"></div>
         <p class=" mb-4 block text-3xl font-bold text-center main-color">
           About
         </p>

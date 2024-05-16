@@ -18,7 +18,7 @@ let setislogged=  props.setislogged
 
  
   return (
-    <div className={`flex flex-wrap  w-11/12 justify-center gap-x-14 max-w-[1160px] py-12 mx-auto  ${formtype =='login' ? ' all:mt-[0rem] md:mt-[10rem] sm:mt-[25rem] lg:mt-0 gap-y-12 ':'  all:mt-[5rem] sm: '} `}>
+    <div className={`flex flex-wrap  w-11/12 justify-center gap-x-14 max-w-[1160px] py-12 mx-auto  ${formtype =='login' ? ' all:mt-[10rem] md:mt-[10rem] sm:mt-[10rem] lg:mt-[10rem] gap-y-12 ':'  all:mt-[5rem] sm: '} `}>
 
        <div className='w-11/12 max-w-[450px] '>
         <h1 className='text-richblack-5 text-[1.875rem] leading-[2.375rem]'>{title}</h1>
@@ -55,7 +55,7 @@ let setislogged=  props.setislogged
         </div> 
 
 
-<div className=' lg:block md:block sm:block all:hidden relative w-11/12 max-w-[450px]'>
+<div className=' lg:block md:hidden sm:hidden all:hidden relative w-11/12 max-w-[450px]'>
     <img src={frameImage} alt="pattern" height={504}
     width={558} loading='lazy' />
 
