@@ -14,20 +14,21 @@ import { AppContext } from '../context/AppContext';
 gsap.registerPlugin(ScrollTrigger);
 
 export const Home = () => {
-const{backendUrl}=useContext(AppContext)
+const{backendUrl,isLoggedIn,setisLoggedIn}=useContext(AppContext)
 
   const [home,setHome]=useState('')
 
   const fetchdata=async()=>{
     setIsLoading(true)
     
-   axios.get(backendUrl+"/getHomeData")
+   axios.get(backendUrl+"/getHomeData") 
    .then((res)=>{setHome(res.data)
     setIsLoading(false);
     console.log(res.data)
    })
    .catch((e)=>{console.log(e)
     setIsLoading(false)
+    console.log(e)
    })
   }
 
@@ -51,6 +52,11 @@ const sectionRef = useRef(null);
     gsap.registerPlugin(ScrollTrigger);
 fetchdata()
     const section = sectionRef.current;
+const token=localStorage.getItem("token");
+if(token){
+  setisLoggedIn(true)
+}
+
 
     if (section) {
       const tl = gsap.timeline({

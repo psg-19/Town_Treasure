@@ -36,7 +36,7 @@ const [hamburger,setHamburger]=useState(false);
       }
       
       setIsLoading(true);
-      
+      localStorage.removeItem("token")
       navigate('/')
       setisLoggedIn(false)
 

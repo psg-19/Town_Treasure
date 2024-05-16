@@ -1,14 +1,16 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
 import axios from 'axios'
-
+import { AppContext } from "../context/AppContext";
+import {jwtdecode} from 'jwt-decode'
 
 export const LoginForm = (props) => {
   let setislogged = props.setislogged;
 
+  const{backendUrl}=useContext(AppContext)
   const navigate = useNavigate();
 
   const [showpass, setshowpass] = useState(false);
@@ -17,6 +19,8 @@ export const LoginForm = (props) => {
     email: "",
     password: "",
   });
+
+
 
   function changeHandler(event) {
     setformData((prevdata) => ({
@@ -37,21 +41,24 @@ export const LoginForm = (props) => {
     }
 setIsLoading(true)
    
-    await axios.put("http://localhost:8090/login",formData)
+    await axios.post(backendUrl+"/login",formData)
     .then((res)=>{
+      console.log(res)
   // setCheck(true)
-  if(res.data=="Password is incorrect"){
-    toast.error("Wrong password !!!")
-    return
-  }
+ 
   toast.success("Login successfully !!!")
   setislogged(true);
     console.log(res)
+localStorage.setItem("token",res.data.token)
+
 // navigate('/;')
   navigate("/");
 
   })
-    .catch((e)=> toast.error("something went wrong while logging in"))
+    .catch((e)=> {
+      console.log(e)
+      toast.error(e.response.data.message)
+    })
 
     setIsLoading(false)
 

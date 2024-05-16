@@ -67,7 +67,7 @@ setIsLoading(true)
 
 formData.name=formData.firstname+" "+formData.lastname;
 console.log(formData)
-await axios.put("http://localhost:8090/verify-account?email="+formData.email+"&otp="+formData.otp,formData)
+await axios.put(backendUrl+"/verify-account?email="+formData.email+"&otp="+formData.otp,formData)
 
 .then((res)=>{console.log(res)
   navigate("/login");

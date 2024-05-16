@@ -1,5 +1,51 @@
+import { useContext, useState } from "react";
+import axios from 'axios'
+import { AppContext } from "../context/AppContext";
+import toast from "react-hot-toast";
+
 const ContactUs = () => {
+
+  const {backendUrl}=useContext(AppContext)
+
+  const [formData, setformData] = useState({
+    
+    email: "",
+    name:"",
+    phoneNo:"",
+    message:""
+  });
+const [isLoading,setIsLoading]=useState(false)
+
+  function changeHandler(event) {
+    setformData((prevData) => ({
+      ...prevData,
+      [event.target.name]: event.target.value,
+    }));
+    console.log(formData)
+  }
+
+
+  const submit=async(e)=>{
+e.preventDefault()
+if(formData.email.trim()==''||formData.name.trim()==''||formData.phoneNo.trim()==''||formData.message.trim()==''){
+  toast.error("Please enter some details")
+}
+if(isLoading){
+  toast.error("Please wait ...")
+  return
+}
+setIsLoading(true)
+   await axios.post(backendUrl+"/contactUs",formData)
+    .then((res)=>{console.log(res)
+      toast.success(res.data)
+    })
+    .catch((e)=>toast.error("something went wrong please try again later4"))
+    setIsLoading(false)
+  }
+
     return (
+
+     
       <>
         <section className="relative z-10 overflow-hidden bg-white py-20 lg:py-[120px]">
           <div className="container mx-auto">
@@ -92,14 +138,18 @@ const ContactUs = () => {
                         type="text"
                         placeholder="Your Name"
                         aria-label="text"
+                        name="name"
+                        onChange={(e)=>changeHandler(e)}
                         className="text-body-color border-[f0f0f0] focus:border-primary w-full rounded border py-3 px-[14px] text-base outline-none focus-visible:shadow-none"
                       />
                     </div>
                     <div className="mb-6">
                       <input
                         type="email"
+                        name="email"
                         placeholder="Your Email"
                         aria-label="text"
+                        onChange={(e)=>changeHandler(e)}
                         className="text-body-color border-[f0f0f0] focus:border-primary w-full rounded border py-3 px-[14px] text-base outline-none focus-visible:shadow-none"
                       />
                     </div>
@@ -108,12 +158,16 @@ const ContactUs = () => {
                         type="text"
                         placeholder="Your Phone"
                         aria-label="text"
+                        name="phoneNo"
+                        onChange={(e)=>changeHandler(e)}
                         className="text-body-color border-[f0f0f0] focus:border-primary w-full rounded border py-3 px-[14px] text-base outline-none focus-visible:shadow-none"
                       />
                     </div>
                     <div className="mb-6">
                       <textarea
                         rows="6"
+                        name="message"
+                        onChange={(e)=>changeHandler(e)}
                         placeholder="Your Message"
                         aria-label="text"
                         className="text-body-color border-[f0f0f0] focus:border-primary w-full resize-none rounded border py-3 px-[14px] text-base outline-none focus-visible:shadow-none"
@@ -122,9 +176,10 @@ const ContactUs = () => {
                     <div>
                       <button
                         type="submit"
+                     onClick={(e)=>submit(e)}
                         className="w-full main-color-bg text-dark font-bold rounded border p-3 transition hover:bg-opacity-90"
                       >
-                        Send Message
+                       {isLoading ? "Please wait ...":" Send Message"}
                       </button>
                     </div>
                   </form>

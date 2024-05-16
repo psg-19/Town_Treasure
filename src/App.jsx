@@ -18,9 +18,9 @@ import Footer from './components/Footer.jsx'
 function App() {
 
 
-  const[isLoggedIn,setisLoggedIn]=useState(false)
+ 
 
-const {state}=useContext(AppContext)
+const {state,isLoggedIn,setisLoggedIn}=useContext(AppContext)
 // console.log('appppppp',state)
   return (
     <div className="w-[100vw] no-scrollbar  bg-richblack-900 overflow-y-auto overflow-x-hidden flex flex-col">
