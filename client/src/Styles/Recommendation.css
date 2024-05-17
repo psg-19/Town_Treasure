@@ -1,6 +1,7 @@
 .recommendation {
   width: 130%;
   padding: 2rem 0;
+  overflow-x: scroll;
 }
 
 .title {
@@ -42,6 +43,7 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
   padding: 2rem 0;
+  
 }
 
 .box {

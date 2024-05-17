@@ -1,23 +1,40 @@
-
-import React,  { useState, useRef ,useEffect} from 'react'
+import React,  { useState, useRef ,useEffect, useContext} from 'react'
 
 import { useNavigate } from 'react-router-dom'
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-
+import axios from 'axios'
 import Carousel from './Carousel';
 
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { AppContext } from '../context/AppContext';
 
 gsap.registerPlugin(ScrollTrigger);
 
 export const Home = () => {
+const{backendUrl,isLoggedIn,setisLoggedIn}=useContext(AppContext)
+
+  const [home,setHome]=useState('')
+
+  const fetchdata=async()=>{
+    setIsLoading(true)
+    
+   axios.get(backendUrl+"/getHomeData") 
+   .then((res)=>{setHome(res.data)
+    setIsLoading(false);
+    console.log(res.data)
+   })
+   .catch((e)=>{console.log(e)
+    setIsLoading(false)
+    console.log(e)
+   })
+  }
 
   const [isScrolled, setIsScrolled] = useState(false);
 
-  
+  const [isLoading,setIsLoading]=useState(true);
 
   const[click,setClick]=useState('sf')
 const navigate=useNavigate()
@@ -33,8 +50,13 @@ const sectionRef = useRef(null);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
-
+fetchdata()
     const section = sectionRef.current;
+const token=localStorage.getItem("token");
+if(token){
+  setisLoggedIn(true)
+}
+
 
     if (section) {
       const tl = gsap.timeline({
@@ -99,17 +121,19 @@ const sectionRef = useRef(null);
 
 {/* -------------------wrapper------------------------------------------------------ */}
 
-
+{
+isLoading  ? <div>Please wait</div>:
+<div>
 {/* ---------------------------------hero=--------------------------------- */}
 <div className=' bg-homeBg  w-[100vw] h-[100vh] bg-cover bg-center bg-no-repeat relative flex  items-center no-scrollbar'>
 
 
 
 <div ref={textRef} style={{ marginTop: '10vh' }}>  
-<div className=' flex flex-col gap-y-9 px-48 my-5'><h1 className=' text-5xl font-extrabold text-white z-10 text-left'>Plan Your Trip With<br>
-</br> Town Treasures
+<div className=' flex flex-col gap-y-9 px-48 my-5'><h1 className=' text-5xl font-extrabold text-white z-10 text-left'>{home[0]}<br>
+</br> {home[1]}
   </h1>
-   <p className=' text-left text-lg w-96'>Join our platform and  embark your journey in town travelling.Exploring is a conversation with the planet, a kaleidoscope of cultures and landscapes that broaden your understanding of the human story.</p>
+   <p className=' text-left text-lg w-96'>{home[2]}</p>
    </div>
 
    <button className="bg-yellow-500 hover:bg-orange-500 text-blue-950 font-semibold hover:text-white py-2 px-2 mx-48  border border-blue-500 hover:border-transparent rounded " onClick={()=> {navigate('/booking')
@@ -140,13 +164,13 @@ setClick('Sign Up')}}>
 
 <h1 className='text-4xl text-red-400 font-extrabold text-center font-mullish overflow-x-hidden relative w-72 overflow-hidden shadow-lg transition-transform duration-300 transform hover:scale-110 mx-40'>Travel With Us</h1>
 
-<p className='text-lg text-white text-left font-serif overflow-x-hidden relative w-100 overflow-hidden  transition-transform duration-300 transform hover:scale-110 mx-4'> A town treasurer is like a juggler, constantly keeping the balls of revenue, expenses, and debt in the air. The town treasury is not a bottomless pit, but a well that needs to be replenished with care. Embark on a journey through time and explore cities like never before. Discover hidden gems, historical landmarks, and quaint local vendors. Navigate the intricate routes of the city with our detailed maps. Find the perfect place to stay, from charming bed-and-breakfasts to luxurious hotels. Need a ride? Our taxi price comparison ensures you travel smart.</p>
+<p className='text-lg text-white text-left font-serif overflow-x-hidden relative w-100 overflow-hidden  transition-transform duration-300 transform hover:scale-110 mx-4'> {home[3]}</p>
 
 <div className='flex justify-center items-center gap-x-4'>
 <button className="bg-transparent hover:bg-blue-500 text-sky-600 font-semibold hover:text-white py-2 px-1 border
  border-blue-500 hover:border-transparent rounded overflow-x-hidden relative w-72 overflow-hidden shadow-lg transition-transform duration-300 transform hover:scale-110" onClick={()=> {
-  navigate('/Places')
-  setClick('Places')
+  navigate('/explore')
+  setClick('Explore')
   }}>
   Get To Know  Your City
 </button>
@@ -247,9 +271,9 @@ w-[100vw] h-[100vh] flex flex-col justify-start  py-32 px-6 gap-y-12   bg-cover 
                         4!2i768!4f13.1!3m3!1m2!1s0x3755b8b087026b81%3A0x8fa563bbdd5904c2!2sDhaka!5e0!3m2!1sen!2sbd!4v1664588357584!5m2!1sen!2sbd" className='h-[100%] w-[100%]' allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>       
 <div className='flex-none mx-10'>
-<h1 className='font-extrabold text-white text-5xl my-10 w-96'>Discover city routes</h1>
+<h1 className='font-extrabold text-white text-5xl my-10 w-96'>{home[4]}</h1>
 
-<p className='font-semibold text-white text-xl my-10 w-96'>Explore your city stress-free with our concise 50-word route guide. Navigate seamlessly through attractions, dining spots, and landmarks. Discover hidden gems effortlessly. Enjoy a hassle-free journey with our city route, tailored for your convenience. Let us guide you to the best spots with ease and confidence.
+<p className='font-semibold text-white text-xl my-10 w-96'>{home[5]}
 
 
 
@@ -269,7 +293,8 @@ setClick('Sign Up')}}>
 </div></div>
 </div>
 </div>
-
+</div>
+}
 {/* ----------------------------------foot 2 end----------------------------------- */}
 
 

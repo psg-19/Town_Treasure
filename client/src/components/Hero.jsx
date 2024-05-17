@@ -1,6 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Classes from "../Styles/Hero.module.css";
 import Banner from "../assets/hero.png";
+import { AppContext } from "../context/AppContext";
+import toast from "react-hot-toast";
+import axios from "axios";
 
 function Hero() {
   const [modal, setModal] = useState(false);
@@ -385,18 +388,59 @@ function Hero() {
   
   
 
-  const handleStateChange = (event) => {
-    setSelectedState(event.target.value);
-    setCities(stateCitiesMap[event.target.value]);
+  const handleStateChange = (e) => {
+   formData.state=e.target.value;
+   setSelectedState(e.target.value);
+   setCities(stateCitiesMap[e.target.value]);
   };
 
-  const handleCityChange = (event) => {
-    setSelectedCity(event.target.value);
+  const handleCityChange = (e) => {
+    formData.city=e.target.value
+    setSelectedCity(e.target.value);
+    // console.log(first)
   };
 
   const handleModalOpen = () => {
     setModal(true);
   };
+
+  const [formData, setformData] = useState({
+    
+   checkin:'',
+   checkout:"",
+   state:"",
+   city:""
+  });
+const [isLoading,setIsLoading]=useState(false)
+
+  function changeHandler(event) {
+    // console.log(event)
+    setformData((prevData) => ({
+      ...prevData,
+      [event.target.name]: event.target.value,
+    }));
+    console.log(formData)
+  }
+
+const{backendUrl}=useContext(AppContext)
+  const submit=async(e)=>{
+e.preventDefault()
+if(formData.state.trim()==''||formData.city.trim()==''||formData.checkin.trim()==''||formData.checkout.trim()==''){
+  toast.error("Please enter some details")
+}
+if(isLoading){
+  toast.error("Please wait ...")
+  return
+}
+setIsLoading(true)
+   await axios.post(backendUrl+"/booking",formData)
+    .then((res)=>{console.log(res)
+      toast.success(res.data)
+      handleModalOpen()
+    })
+    .catch((e)=>toast.error("something went wrong please try again later4"))
+    setIsLoading(false)
+  }
 
   return (
     <div className={Classes.hero}>
@@ -423,7 +467,7 @@ function Hero() {
             <div className={Classes.bookingContainer}>
               <div className={Classes.bookingFields}>
                 {/* State selection */}
-                <select value={selectedState} onChange={handleStateChange}>
+                <select value={selectedState} onChange={(e)=>handleStateChange(e)}>
                   <option value="">Select State</option>
                   {Object.keys(stateCitiesMap).map((state) => (
                     <option key={state} value={state}>
@@ -433,7 +477,7 @@ function Hero() {
                 </select>
 
                 {/* City selection */}
-                <select value={selectedCity} onChange={handleCityChange} disabled={!selectedState}>
+                <select  onChange={(e)=>handleCityChange(e)} >
                   <option value="">Select City</option>
                   {cities.map((city) => (
                     <option key={city} value={city}>
@@ -443,20 +487,20 @@ function Hero() {
                 </select>
               </div>
 
-              <div className={Classes.bookingFields}>
+              <div className={Classes.bookingFields} style={{display:'flex'}}> 
                 {/* Check-in and Check-out */}
                 <div className={Classes.search}>
                   <label>Check in</label>
-                  <input type="date" />
+                  <input type="date" name="checkin"  onChange={(e)=>changeHandler(e)}/>
                 </div>
 
                 <div className={Classes.search}>
                   <label>Check out</label>
-                  <input type="date" />
+                  <input type="date"  name="checkout" onChange={(e)=>changeHandler(e)}/>
                 </div>
               </div>
 
-              <button onClick={handleModalOpen}>Book Now</button>
+              <button onClick={(e)=>submit(e)}>{isLoading ? "Please wait ...":"Book Now"}</button>
             </div>
           </div>
         </section>

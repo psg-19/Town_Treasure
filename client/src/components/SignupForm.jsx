@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { NavLink, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import axios from 'axios'
+import { AppContext } from "../context/AppContext";
 
 
 
@@ -10,6 +11,7 @@ import axios from 'axios'
 export const SignupForm = ({ setislogged }) => {
   const [check,setCheck]=useState(false)
   let navigate = useNavigate();
+  const{backendUrl}=useContext(AppContext)
   const [showpass, setshowpass] = useState(false);
   const [showcomfirmpass, setshowcomfirmpass] = useState(false);
 
@@ -40,7 +42,7 @@ export const SignupForm = ({ setislogged }) => {
 setIsLoading(true)
     formData.name=formData.firstname+" "+formData.lastname;
     console.log('hhhhhhh')
-    await axios.post("http://localhost:8080/register",formData)
+    await axios.post(backendUrl+"/register",formData)
     .then((res)=>{ toast.success("OTP sent successfully !!!")
   setCheck(true)
   })
@@ -65,7 +67,7 @@ setIsLoading(true)
 
 formData.name=formData.firstname+" "+formData.lastname;
 console.log(formData)
-await axios.put("http://localhost:8080/verify-account?email="+formData.email+"&otp="+formData.otp,formData)
+await axios.put(backendUrl+"/verify-account?email="+formData.email+"&otp="+formData.otp,formData)
 
 .then((res)=>{console.log(res)
   navigate("/login");

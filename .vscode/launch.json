@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-MedlinkApplication<medlink>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.medlink.MedlinkApplication",
+            "projectName": "medlink",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

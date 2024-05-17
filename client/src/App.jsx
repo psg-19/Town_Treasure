@@ -18,9 +18,9 @@ import Footer from './components/Footer.jsx'
 function App() {
 
 
-  const[isLoggedIn,setisLoggedIn]=useState(false)
+ 
 
-const {state}=useContext(AppContext)
+const {state,isLoggedIn,setisLoggedIn}=useContext(AppContext)
 // console.log('appppppp',state)
   return (
     <div className="w-[100vw] no-scrollbar  bg-richblack-900 overflow-y-auto overflow-x-hidden flex flex-col">
@@ -30,7 +30,7 @@ const {state}=useContext(AppContext)
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/Login' element={<Login setislogged={setisLoggedIn}></Login>}></Route>
         <Route path='/Signup' element={<Signup setislogged={setisLoggedIn}></Signup>}></Route>
-        <Route path='/states' element={<States setislogged={setisLoggedIn}></States>}></Route>
+        <Route path='/explore' element={<States setislogged={setisLoggedIn}></States>}></Route>
         <Route path='/booking' element={<Booking setislogged={setisLoggedIn}></Booking>}></Route>
 
         <Route path={`/state`} element={<Dashboard setislogged={setisLoggedIn}></Dashboard>}></Route>
