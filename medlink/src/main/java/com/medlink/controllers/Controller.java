@@ -34,7 +34,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:3000")
+
 public class Controller {
     @Autowired
     private UserService uService;
@@ -46,6 +46,7 @@ public class Controller {
     private BookingService bookingService;
 
     // Login endpoint
+    @CrossOrigin
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody LoginRequest user) {
         try {
@@ -56,7 +57,7 @@ public class Controller {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(errorResponse);
         }
     }
-
+@CrossOrigin
     @PostMapping("/register")
     public ResponseEntity<?> register(@RequestBody UserModel user) {
         try {
@@ -69,7 +70,7 @@ public class Controller {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(errorResponse);
         }
     }
-
+@CrossOrigin
     @PutMapping("/verify-account")
     public ResponseEntity<?> verifyAccount(@RequestParam String email,
                                            @RequestParam String otp) {
@@ -88,6 +89,7 @@ public class Controller {
     }
 
     // Get hospitals by location endpoint
+    @CrossOrigin
   @GetMapping("/getAboutUsData")
   public ArrayList<String> getAboutUsData() {
     ArrayList<String> response = new ArrayList<>();
@@ -103,6 +105,7 @@ public class Controller {
       return response;
   }
 
+  @CrossOrigin
   @GetMapping("/getHomeData")
   public ArrayList<String> getHomeData() {
     ArrayList<String> response = new ArrayList<>();
@@ -176,7 +179,7 @@ new CityLandmarks("Jhasi", java.util.Arrays.asList(
 
 
        
-
+@CrossOrigin
     @GetMapping("/landmarks/{city}")
     public List<Landmark> getLandmarksByCity(@PathVariable String city) {
         Optional<CityLandmarks> cityLandmarks = data.stream()
@@ -192,12 +195,14 @@ new CityLandmarks("Jhasi", java.util.Arrays.asList(
 
   
 
- 
+ @CrossOrigin
   @PostMapping("/contactUs")
   public ResponseEntity<String>  contactUs(@RequestBody ContactUsDto contactUsDto){
     System.out.println(contactUsDto);
     return new ResponseEntity<>(contactUsService.sendForm(contactUsDto),HttpStatus.OK);
   }
+
+  @CrossOrigin
   @PostMapping("/booking")
   public ResponseEntity<String>  booking(@RequestBody BookingDto bookingDto){
     System.out.println(bookingDto);

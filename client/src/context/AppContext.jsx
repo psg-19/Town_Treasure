@@ -14,7 +14,7 @@ const [state,setState]=useState({
     name:'none'
 })
 
-const backendUrl="http://localhost:4001"
+const backendUrl="http://13.233.144.217:8080"
 const [district,setDistrict]=useState({
     name:'none'
 })
