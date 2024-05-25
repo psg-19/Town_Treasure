@@ -434,11 +434,11 @@ if(isLoading){
 }
 setIsLoading(true)
    await axios.post(backendUrl+"/booking",formData)
-    .then((res)=>{console.log(res)
+    
       toast.success(res.data)
       handleModalOpen()
-    })
-    .catch((e)=>toast.error("something went wrong please try again later4"))
+   
+   
     setIsLoading(false)
   }
 
