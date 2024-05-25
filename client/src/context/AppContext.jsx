@@ -14,7 +14,7 @@ const [state,setState]=useState({
     name:'none'
 })
 
-const backendUrl="http://13.233.144.217:8080"
+const backendUrl="https://test2-1-vau5.onrender.com"
 const [district,setDistrict]=useState({
     name:'none'
 })
